@@ -1,6 +1,6 @@
 # MeasureSpace API Tutorial
 
-A series of API examples from MeasureSpace including Weather API, Climate API, Air Quality API and City Geocoding API.
+A series of API examples from [MeasureSpace API services](https://weather.measurespace.io/pricing) including Weather API, Climate API, Air Quality API and City Geocoding API.
 
 ### Global Hourly Weather API
 
@@ -23,6 +23,7 @@ A series of API examples from MeasureSpace including Weather API, Climate API, A
 
 ### Global Climate API
 
+- [Climate API tutorial](src/climate_api.ipynb)
 - 10-month forecast at daily frequency and global scale
 - 11 common [variables](https://weather.measurespace.io/documentation#global-climate-forecast-variables)
 - imperial and metric units
@@ -30,6 +31,7 @@ A series of API examples from MeasureSpace including Weather API, Climate API, A
 
 ### Global Air Quality API
 
+- [Air Quality API tutorial](src/air_quality_api.ipynb)
 - 5-day air quality forecast at hourly and daily frequency and global scale
 - 7 common [air pollutants](https://weather.measurespace.io/documentation#global-hourly-air-quality-forecast-variables) including Air Quality Index
 - help people plan outdoor activities and make health product marketing more efficient
@@ -41,4 +43,4 @@ A series of API examples from MeasureSpace including Weather API, Climate API, A
 - get matched cities based on user inputs
 - convert city names to corresponding latitude and longitude info
 - find nearest city based on latitude and longitude
-- live demo through our weather dashboard search city feature
+- live demo through [our weather dashboard](https://weather.measurespace.io/dashboard/public) search city feature
