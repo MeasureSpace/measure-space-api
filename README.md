@@ -128,6 +128,11 @@ print(df.head())
 - See [MeasureSpace API Explorer](https://measurespace.io/api-explorer) for details on endpoints and parameters.
 - See [MeasureSpace Documentation](https://measurespace.io/documentation) for variable names and meanings.
 
+## Publish to PyPI
+
+- `uv build`
+- `uv publish --token <your-pypi-token>`
+
 ## License
 
 Apache License
