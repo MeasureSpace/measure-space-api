@@ -69,6 +69,7 @@ You may use a `.env` file to store your API keys and load them with `python-dote
 HOURLY_WEATHER_API_KEY=your_hourly_weather_key
 DAILY_WEATHER_API_KEY=your_daily_weather_key
 DAILY_CLIMATE_API_KEY=your_daily_climate_key
+AIR_QUALITY_API_KEY=your_air_quality_key
 GEOCODING_API_KEY=your_geocoding_key
 ```
 
