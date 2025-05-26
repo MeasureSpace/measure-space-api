@@ -26,6 +26,8 @@ pip install measure-space-api
 
 ## Usage
 
+### Get Weather, Climate and Air Quality Variables
+
 Import the package and call the functions:
 
 ```python
@@ -51,34 +53,7 @@ df = get_hourly_weather(api_key, geocoding_api_key, location_name="Beijing", par
 print(df.head())
 ```
 
-## API Functions
-
-### Weather and Climate
-
-- `get_hourly_weather(api_key, geocoding_api_key=None, location_name=None, latitude=None, longitude=None, params={'variables': 'tp, t2m', 'unit': 'metric'}, return_json=True)`
-- `get_daily_weather(api_key, geocoding_api_key=None, location_name=None, latitude=None, longitude=None, params={'variables': 'tp, minT, maxT', 'unit': 'metric'}, return_json=True)`
-- `get_daily_climate(api_key, geocoding_api_key=None, location_name=None, latitude=None, longitude=None, params={'variables': 'tp, tmin, tmax', 'unit': 'metric'}, return_json=True)`
-
-### Air Quality
-
-- `get_hourly_air_quality(api_key, geocoding_api_key=None, location_name=None, latitude=None, longitude=None, params={'variables': 'AQI, DP'}, return_json=True)`
-- `get_daily_air_quality(api_key, geocoding_api_key=None, location_name=None, latitude=None, longitude=None, params={'variables': 'AQI'}, return_json=True)`
-
-### Geocoding
-
-- `get_lat_lon_from_city(api_key, location_name)`
-- `get_city_from_lat_lon(api_key, latitude, longitude)`
-
-## Parameters
-
-- `api_key`: Your API key for the weather/climate/air quality service
-- `geocoding_api_key`: (Optional) API key for geocoding service
-- `location_name`: (Optional) City name (e.g., "New York", "Beijing, China")
-- `latitude`, `longitude`: (Optional) Coordinates
-- `params`: (Optional) Dictionary of additional API parameters (e.g., variables, units, local_flag)
-- `return_json`: If True, returns JSON; if False, returns a pandas DataFrame
-
-## Example: Get City Coordinates
+### Get City Coordinates
 
 ```python
 from measure_space_api.main import get_lat_lon_from_city
@@ -86,7 +61,7 @@ lat, lon = get_lat_lon_from_city(geocoding_api_key, "Shanghai")
 print(lat, lon)
 ```
 
-## Environment Variables
+### Use Environment Variables
 
 You may use a `.env` file to store your API keys and load them with `python-dotenv`.
 
@@ -120,6 +95,33 @@ df = get_hourly_weather(HOURLY_WEATHER_API_KEY, latitude=40.2, longitude=110.2, 
 print(df.head())
 
 ```
+
+## API Functions
+
+### Weather and Climate
+
+- `get_hourly_weather(api_key, geocoding_api_key=None, location_name=None, latitude=None, longitude=None, params={'variables': 'tp, t2m', 'unit': 'metric'}, return_json=True)`
+- `get_daily_weather(api_key, geocoding_api_key=None, location_name=None, latitude=None, longitude=None, params={'variables': 'tp, minT, maxT', 'unit': 'metric'}, return_json=True)`
+- `get_daily_climate(api_key, geocoding_api_key=None, location_name=None, latitude=None, longitude=None, params={'variables': 'tp, tmin, tmax', 'unit': 'metric'}, return_json=True)`
+
+### Air Quality
+
+- `get_hourly_air_quality(api_key, geocoding_api_key=None, location_name=None, latitude=None, longitude=None, params={'variables': 'AQI, DP'}, return_json=True)`
+- `get_daily_air_quality(api_key, geocoding_api_key=None, location_name=None, latitude=None, longitude=None, params={'variables': 'AQI'}, return_json=True)`
+
+### Geocoding
+
+- `get_lat_lon_from_city(api_key, location_name)`
+- `get_city_from_lat_lon(api_key, latitude, longitude)`
+
+## Parameters
+
+- `api_key`: Your API key for the weather/climate/air quality service
+- `geocoding_api_key`: (Optional) API key for geocoding service
+- `location_name`: (Optional) City name (e.g., "New York", "Beijing, China")
+- `latitude`, `longitude`: (Optional) Coordinates
+- `params`: (Optional) Dictionary of additional API parameters (e.g., variables, units, local_flag)
+- `return_json`: If True, returns JSON; if False, returns a pandas DataFrame
 
 ## API Documentation
 
