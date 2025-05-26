@@ -37,18 +37,23 @@ from measure_space_api.main import (
 
 # Example: Get hourly weather by coordinates
 api_key = "YOUR_API_KEY"
-df = get_hourly_weather(api_key, latitude=40.2, longitude=110.2, return_json=False)
+params = {
+    # Variable names and meaning can be found at https://measurespace.io/documentation#global-hourly-weather-forecast-variables
+    "variables": "tp,t2m",
+    "unit": "metric"
+}
+df = get_hourly_weather(api_key, latitude=40.2, longitude=110.2, params=params, return_json=False)
 print(df.head())
 
-# Example: Get daily weather by city name
+# Example: Get hourly weather by city name
 geocoding_api_key = "YOUR_GEOCODING_API_KEY"
-df = get_daily_weather(api_key, geocoding_api_key, location_name="Beijing", return_json=False)
+df = get_hourly_weather(api_key, geocoding_api_key, location_name="Beijing", params=params, return_json=False)
 print(df.head())
 ```
 
 ## API Functions
 
-### Weather
+### Weather and Climate
 
 - `get_hourly_weather(api_key, geocoding_api_key=None, location_name=None, latitude=None, longitude=None, params={'variables': 'tp, t2m', 'unit': 'metric'}, return_json=True)`
 - `get_daily_weather(api_key, geocoding_api_key=None, location_name=None, latitude=None, longitude=None, params={'variables': 'tp, minT, maxT', 'unit': 'metric'}, return_json=True)`
@@ -86,10 +91,34 @@ print(lat, lon)
 You may use a `.env` file to store your API keys and load them with `python-dotenv`.
 
 ```env
-HOURLY_WEATHER_API_KEY=your_key
-HOURLY_WEATHER_API_URL=https://api.example.com/hourly
+HOURLY_WEATHER_API_KEY=your_hourly_weather_key
+DAILY_WEATHER_API_KEY=your_daily_weather_key
+DAILY_CLIMATE_API_KEY=your_daily_climate_key
 GEOCODING_API_KEY=your_geocoding_key
-GEOCODING_API_URL=https://api.example.com/geocode
+```
+
+Call API using API keys from `.env` file.
+
+```python
+from measure_space_api.main import (
+    get_hourly_weather, get_daily_weather, get_daily_climate,
+    get_hourly_air_quality, get_daily_air_quality,
+    get_lat_lon_from_city, get_city_from_lat_lon
+)
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
+# Example: Get hourly weather by coordinates
+params = {
+    # Variable names and meaning can be found at https://measurespace.io/documentation#global-hourly-weather-forecast-variables
+    "variables": "tp,t2m",
+    "unit": "metric"
+}
+df = get_hourly_weather(HOURLY_WEATHER_API_KEY, latitude=40.2, longitude=110.2, params=params, return_json=False)
+print(df.head())
+
 ```
 
 ## API Documentation
