@@ -7,4 +7,5 @@ from .main import (
 	get_daily_air_quality,
 	get_lat_lon_from_city,
 	get_city_from_lat_lon,
+    get_metadata,
 )
