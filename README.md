@@ -31,7 +31,7 @@ pip install measure-space-api
 Import the package and call the functions:
 
 ```python
-from measure_space_api.main import (
+from measure_space_api import (
     get_hourly_weather, get_daily_weather, get_daily_climate,
     get_hourly_air_quality, get_daily_air_quality,
     get_lat_lon_from_city, get_city_from_lat_lon
@@ -76,7 +76,7 @@ GEOCODING_API_KEY=your_geocoding_key
 Call API using API keys from `.env` file.
 
 ```python
-from measure_space_api.main import (
+from measure_space_api import (
     get_hourly_weather, get_daily_weather, get_daily_climate,
     get_hourly_air_quality, get_daily_air_quality,
     get_lat_lon_from_city, get_city_from_lat_lon

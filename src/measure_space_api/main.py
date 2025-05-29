@@ -2,7 +2,7 @@ import os
 import requests
 import pandas as pd
 from typing import Dict, Any, Union, Tuple
-from .constants import URL_MAPPING
+from .constants import URL_MAPPING, DESCRIPTION_MAPPING, UNIT_MAPPING
 
 def call_api(
     api_key: str,
@@ -400,4 +400,28 @@ def get_daily_air_quality(
         return_json,
     )
 
-    
+def get_metadata(var_name: str, unit: str = 'metric') -> Tuple[str, str]:
+    """Get variable meaning and unit.
+
+    Parameters
+    ----------
+    var_name : str
+        variable name
+    unit : str, optional
+        unit system, by default 'metric'. Must be 'metric' or 'imperial'.
+
+    Returns
+    -------
+    Tuple[str, str]
+        variable meaning and corresponding unit if applicable
+
+    Raises
+    ------
+    ValueError
+        If unit is not 'metric' or 'imperial'.
+    """
+    if unit not in ('metric', 'imperial'):
+        raise ValueError("unit must be either 'metric' or 'imperial'")
+    return DESCRIPTION_MAPPING.get(var_name), UNIT_MAPPING[unit].get(var_name)
+
+
