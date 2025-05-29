@@ -51,6 +51,9 @@ print(df.head())
 geocoding_api_key = "YOUR_GEOCODING_API_KEY"
 df = get_hourly_weather(api_key, geocoding_api_key, location_name="Beijing", params=params, return_json=False)
 print(df.head())
+
+# Example: get metadata (variable description, unit)
+get_metadata('tp', unit='metric')
 ```
 
 ### Get City Coordinates
