@@ -4,15 +4,6 @@ A Python package for accessing weather, climate, air quality, agriculture, polle
 
 ## Features
 
-- Get hourly and daily weather forecasts
-- Get daily climate forecasts
-- Get hourly and daily air quality forecasts
-- Get agriculture forecasts like growing degree days (GDD) and crop stress.
-- Get daily pollen forecasts
-- Geocoding: convert city names to coordinates and vice versa
-- Unified API call interface with flexible parameters
-
-
 Global Hourly Weather Forecast
 - 5-day forecast at hourly frequency and global scale
 - over 20 common weather variables with timezone and weather icons
