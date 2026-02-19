@@ -1,14 +1,65 @@
 # Measure Space API Python Package
 
-A Python package for accessing weather, climate, air quality, and geocoding APIs provided by [MeasureSpace.io](https://measurespace.io).
+A Python package for accessing weather, climate, air quality, agriculture, pollen, and geocoding APIs provided by [MeasureSpace.io](https://measurespace.io).
 
 ## Features
 
 - Get hourly and daily weather forecasts
 - Get daily climate forecasts
 - Get hourly and daily air quality forecasts
+- Get agriculture forecasts like growing degree days (GDD) and crop stress.
+- Get daily pollen forecasts
 - Geocoding: convert city names to coordinates and vice versa
 - Unified API call interface with flexible parameters
+
+
+Global Hourly Weather Forecast
+- 5-day forecast at hourly frequency and global scale
+- over 20 common weather variables with timezone and weather icons
+- available at local and UTC time
+- imperial and metric units
+- support agriculture, logistics, IoT and many other general weather applications
+
+Global Daily Weather Forecast
+- 15-day forecast at daily frequency and global scale
+- over 30 common weather variables with timezone, sunrise, sunset and weather icons
+- available at local and UTC time
+- daytime and nighttime aggregations
+- imperial and metric units
+- support agriculture, logistics, IoT and many other general weather applications
+
+Global Climate Forecast
+- 10-month forecast at daily frequency and global scale
+- 11 common variables
+- imperial and metric units
+- support agriculture and many other general climate applications
+
+Global Air Quality Forecast
+- 5-day air quality forecast at hourly and daily frequency and global scale
+- 7 common air pollutants including Air Quality Index
+- help people plan outdoor activities and make health product marketing more efficient
+
+Global City Geocoding
+- dedicated to city geocoding and reverse geocoding
+- autocomplete for more than 200,000 cities from 245 countries
+- get matched cities based on user inputs
+- convert city names to corresponding latitude and longitude info
+- find nearest city based on latitude and longitude
+- live demo through our weather dashboard search city feature
+
+Agriculture
+- growing degree days forecast
+- growth stage forecast
+- heat stress forecast
+- frost stress forecast
+- data from past year to next 9 months
+- imperial and metric units
+- support major crops like corn, soybean, wheat, rice and many others
+
+Global Pollen Forecast
+- 10-day pollen forecast at daily frequency and global scale
+- 3 common pollen types
+- help people plan outdoor activities and make health product marketing more efficient
 
 ## Installation
 
@@ -26,7 +77,7 @@ pip install measure-space-api
 
 ## Usage
 
-### Get Weather, Climate and Air Quality Variables
+### Get Weather, Climate, Air Quality, Agriculture and Pollen Variables
 
 Import the package and call the functions:
 
