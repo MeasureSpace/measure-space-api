@@ -76,7 +76,10 @@ Import the package and call the functions:
 from measure_space_api import (
     get_hourly_weather, get_daily_weather, get_daily_climate,
     get_hourly_air_quality, get_daily_air_quality,
-    get_lat_lon_from_city, get_city_from_lat_lon
+    get_lat_lon_from_city, get_city_from_lat_lon,
+    get_daily_pollen, get_growing_degree_days,
+    get_heat_stress_days, get_frost_stress_days,
+    get_growth_stage,
 )
 
 # Example: Get hourly weather by coordinates
@@ -96,6 +99,55 @@ print(df.head())
 
 # Example: get metadata (variable description, unit)
 get_metadata('tp', unit='metric')
+
+# Example: Get daily pollen forecast by coordinates
+pollen_api_key = "YOUR_POLLEN_API_KEY"
+data = get_daily_pollen(pollen_api_key, latitude=40.2, longitude=-74.0)
+print(data)
+
+# Example: Get daily pollen forecast by city name
+data = get_daily_pollen(pollen_api_key, geocoding_api_key=geocoding_api_key, location_name="New York")
+print(data)
+
+# Example: Get growing degree days
+ag_api_key = "YOUR_AGRICULTURE_API_KEY"
+params = {
+    'start_date': '2025-01-01',
+    'end_date': '2025-06-01',
+    'base_temperature': 50,
+    'unit': 'F',
+}
+data = get_growing_degree_days(ag_api_key, latitude=40.2, longitude=-89.0, params=params)
+print(data)
+
+# Example: Get crop growth stage
+params = {
+    'start_date': '2025-04-01',
+    'end_date': '2025-09-01',
+    'crop_name': 'corn',
+    'unit': 'F',
+}
+data = get_growth_stage(ag_api_key, latitude=40.2, longitude=-89.0, params=params)
+print(data)
+
+# Example: Get heat stress days
+params = {
+    'start_date': '2025-06-01',
+    'end_date': '2025-08-31',
+    'crop_name': 'corn',
+    'heat_stress_threshold': 95,
+}
+data = get_heat_stress_days(ag_api_key, latitude=40.2, longitude=-89.0, params=params)
+print(data)
+
+# Example: Get frost stress days
+params = {
+    'start_date': '2025-10-01',
+    'end_date': '2025-12-31',
+    'frost_stress_threshold': 32,
+}
+data = get_frost_stress_days(ag_api_key, latitude=40.2, longitude=-89.0, params=params)
+print(data)
 ```
 
 ### Get City Coordinates
@@ -116,6 +168,11 @@ DAILY_WEATHER_API_KEY=your_daily_weather_key
 DAILY_CLIMATE_API_KEY=your_daily_climate_key
 AIR_QUALITY_API_KEY=your_air_quality_key
 GEOCODING_API_KEY=your_geocoding_key
+POLLEN_API_KEY=your_pollen_key
+GROWING_DEGREE_DAYS_API_KEY=your_growing_degree_days_key
+HEAT_STRESS_DAYS_API_KEY=your_heat_stress_days_key
+FROST_STRESS_DAYS_API_KEY=your_frost_stress_days_key
+GROWTH_STAGE_API_KEY=your_growth_stage_key
 ```
 
 Call API using API keys from `.env` file.
@@ -124,7 +181,10 @@ Call API using API keys from `.env` file.
 from measure_space_api import (
     get_hourly_weather, get_daily_weather, get_daily_climate,
     get_hourly_air_quality, get_daily_air_quality,
-    get_lat_lon_from_city, get_city_from_lat_lon
+    get_lat_lon_from_city, get_city_from_lat_lon,
+    get_daily_pollen, get_growing_degree_days,
+    get_heat_stress_days, get_frost_stress_days,
+    get_growth_stage,
 )
 from dotenv import load_dotenv
 import os
@@ -154,6 +214,17 @@ print(df.head())
 
 - `get_hourly_air_quality(api_key, geocoding_api_key=None, location_name=None, latitude=None, longitude=None, params={'variables': 'AQI, DP'}, return_json=True)`
 - `get_daily_air_quality(api_key, geocoding_api_key=None, location_name=None, latitude=None, longitude=None, params={'variables': 'AQI'}, return_json=True)`
+
+### Pollen
+
+- `get_daily_pollen(api_key, geocoding_api_key=None, location_name=None, latitude=None, longitude=None, params={}, return_json=True)`
+
+### Agriculture
+
+- `get_growing_degree_days(api_key, latitude, longitude, params={'start_date': None, 'end_date': None, 'base_temperature': 50, 'lower_cutoff': None, 'upper_cutoff': None, 'unit': 'F'}, return_json=True)`
+- `get_growth_stage(api_key, latitude, longitude, params={'start_date': None, 'end_date': None, 'crop_name': None, 'unit': 'F'}, return_json=True)`
+- `get_heat_stress_days(api_key, latitude, longitude, params={'start_date': None, 'end_date': None, 'crop_name': None, 'heat_stress_threshold': None}, return_json=True)`
+- `get_frost_stress_days(api_key, latitude, longitude, params={'start_date': None, 'end_date': None, 'frost_stress_threshold': None}, return_json=True)`
 
 ### Geocoding
 
